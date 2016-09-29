@@ -12,3 +12,15 @@ dataset.train <- read.csv(train.filename)
 #dim(dataset.train) = 1460*81
 #dim(dataset.train) = 1459*80
 dataset.whole <- rbind(dataset.train[,1:80], dataset.test)
+
+#find variables with missing data
+missmap(dataset.whole)
+for( i in 1:80){
+  if(sum(is.na(dataset.whole[,i]))>0){
+    print(colnames(dataset.train)[i])
+  }
+}
+
+
+
+
