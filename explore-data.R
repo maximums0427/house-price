@@ -1,5 +1,6 @@
 library(caret)
 library(Amelia)
+library(corrplot)
 
 
 test.filename<-'data/test.csv'
@@ -18,8 +19,10 @@ missmap(dataset.whole)
 for( i in 1:80){
   if(sum(is.na(dataset.whole[,i]))>0){
     print(colnames(dataset.train)[i])
+    print(sum(is.na(dataset.whole[,i])))
   }
 }
+
 
 
 
